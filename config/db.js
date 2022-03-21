@@ -9,8 +9,11 @@ const sequelize = new Sequelize(
   process.env.USER,
   process.env.PASSWORD,
   {
-    dialect: 'mysql',
     host: process.env.HOST,
+    dialect: 'mysql',
+    dialectOptions: {
+      socketPath: process.env.SOCKET || ''
+    },
     freezeTableName: true,
     timestamps: true,
     underscored: true,
